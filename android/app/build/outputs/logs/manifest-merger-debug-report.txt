@@ -1,0 +1,153 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\425e479fb7720309092cfb859f5f05cf\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5b29b6592f14a6066bbc2e85943a4f50\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\c875ac0a1ff37f13cd116ae29dfd3d90\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\e76607495008fd00a59ca548a233f7c9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\e4a7c717d93bb4b9e5deec68e58d90c2\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\b4431f7db3515afda42d87818b5a4a30\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\190801bf597ea1a2ee70eaa05ea52817\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\fac726be2130321fa04cbd4722482296\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\382e1b8350f1d4172cbeec43980c8ba9\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\bd368ee3abdb62ff90a3afefc5cc7aea\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\477b343ec3b4db2e363b7931718399da\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\122fbb10b94988b5dfc7d35a74d97440\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\2b5dc1408724130c1abb34a93e30c1d9\AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\080b5e026a01af753f3545ae1d824704\AndroidManifest.xml:1:1-3:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e566a460bb7093e1a0c4d3a8cd3c35e9\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0665677fb057beefc2b8998fdfdb1d4a\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\fad0baff7d86a457f5457cf82caa9ddf\AndroidManifest.xml:2:1-9:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ce0cda1bef3178267b8b1a8d07f2e737\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c44a467cd94b12398f4adb58dcb7a2f8\AndroidManifest.xml:17:1-22:12
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:2:5-29
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:5:22-75
+application
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:7:5-24:19
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\2b5dc1408724130c1abb34a93e30c1d9\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\2b5dc1408724130c1abb34a93e30c1d9\AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\080b5e026a01af753f3545ae1d824704\AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\080b5e026a01af753f3545ae1d824704\AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:9:7-39
+	android:icon
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:8:7-38
+activity#com.checktoday.MainActivity
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\425e479fb7720309092cfb859f5f05cf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\425e479fb7720309092cfb859f5f05cf\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5b29b6592f14a6066bbc2e85943a4f50\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5b29b6592f14a6066bbc2e85943a4f50\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\c875ac0a1ff37f13cd116ae29dfd3d90\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\c875ac0a1ff37f13cd116ae29dfd3d90\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\e76607495008fd00a59ca548a233f7c9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\e76607495008fd00a59ca548a233f7c9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\e4a7c717d93bb4b9e5deec68e58d90c2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\e4a7c717d93bb4b9e5deec68e58d90c2\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\b4431f7db3515afda42d87818b5a4a30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\b4431f7db3515afda42d87818b5a4a30\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\190801bf597ea1a2ee70eaa05ea52817\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\190801bf597ea1a2ee70eaa05ea52817\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\fac726be2130321fa04cbd4722482296\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\fac726be2130321fa04cbd4722482296\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\382e1b8350f1d4172cbeec43980c8ba9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\382e1b8350f1d4172cbeec43980c8ba9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\bd368ee3abdb62ff90a3afefc5cc7aea\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\bd368ee3abdb62ff90a3afefc5cc7aea\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\477b343ec3b4db2e363b7931718399da\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\477b343ec3b4db2e363b7931718399da\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\122fbb10b94988b5dfc7d35a74d97440\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\122fbb10b94988b5dfc7d35a74d97440\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\2b5dc1408724130c1abb34a93e30c1d9\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\2b5dc1408724130c1abb34a93e30c1d9\AndroidManifest.xml:7:5-9:41
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e566a460bb7093e1a0c4d3a8cd3c35e9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e566a460bb7093e1a0c4d3a8cd3c35e9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0665677fb057beefc2b8998fdfdb1d4a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\0665677fb057beefc2b8998fdfdb1d4a\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\fad0baff7d86a457f5457cf82caa9ddf\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\fad0baff7d86a457f5457cf82caa9ddf\AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ce0cda1bef3178267b8b1a8d07f2e737\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\ce0cda1bef3178267b8b1a8d07f2e737\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c44a467cd94b12398f4adb58dcb7a2f8\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\c44a467cd94b12398f4adb58dcb7a2f8\AndroidManifest.xml:20:5-44
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE
