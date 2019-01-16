@@ -6,46 +6,70 @@ import { AppRegistry, TextInput } from 'react-native';
 
 
 export default class App extends Component {
-  state = {
-    taskName: "",
-    tasks: [
-      {
-        'taskType':'quit',
-        'taskName':"Task1",
-        'startDate':'01.06.2018',
-        'breakDate':null
-      },
-      {
-        'taskType':'started',
-        'taskName':'Task2',
-        'startDate':'01.06.2018',
-        'breakDate':null
-      },
-      {
-        'taskType':'quit',
-        'taskName':'Task3',
-        'startDate':'01.06.2018',
-        'breakDate':"'01.01.2019'"
-      }
-    ]
-  };
-
-  addTaskToState = (taskName, taskType) => {
-    task = {
-      'taskType':taskType,
-      'taskName':taskName,
-      'startDate':Date.now(),
-      'breakDate':null
+  constructor(props){
+    super(props);
+    this.state = {
+      taskName: "",
+      tasks: [
+        {
+          'taskType':'quit',
+          'taskName':"Task1",
+          'startDate':'01.06.2018',
+          'breakDate':null
+        },
+        {
+          'taskType':'started',
+          'taskName':'Task2',
+          'startDate':'01.06.2018',
+          'breakDate':null
+        },
+        {
+          'taskType':'quit',
+          'taskName':'Task3',
+          'startDate':'01.06.2018',
+          'breakDate':"'01.01.2019'"
+        }
+      ]
     };
-    state += task;
+  }
 
-  };
+  
 
-  onChangeHandler = (event) => {
-    this.state.taskName = event;
+  onPressHandler = (taskType) => {
+
+    if(this.state.taskName.trim() === ""){return;}
+    let taskName = this.state.taskName;
+    
+    task = {
+      'taskType': taskType,
+      'taskName': taskName,
+      'startDate': Date.now().toString(),
+      'breakDate': null
+    };
+
+    this.setState(prevState => {
+
+      return {
+        tasks: prevState.tasks.concat(task)
+      };
+
+    });
+
+    alert(taskName + " Task Created!");
   }
 
   render() {
+    
+   /* const tasksOutput = this.state.tasks.map((task, i) => 
+    {
+      if(task.breakDate == null){
+        return(<Text key={i} style={styles.success}>I {task.taskType.valueOf().toString()} {task.taskName.toString()} at {task.startDate.toString()} and did not break it untill now!! </Text>); 
+      }else{
+        return(<Text key={i} style={styles.danger}>I {task.taskType.toString()} {task.taskName.toString()} at {task.startDate.toString()} and stopped at {task.breakDate.toString()} </Text>);
+      }
+    }
+    );*/
+
     return (
       <View style={styles.container}>
         <View>
@@ -55,25 +79,18 @@ export default class App extends Component {
         <View style={styles.row}>
           <TextInput 
           placeholder='Smoking'
-          onChangeText={this.onChangeHandler}
+          onChangeText={(text) => this.setState({taskName: text})}
           ></TextInput>
           <Text> is the thing i </Text>
-          <Button color="lightgreen" title="Quit" />
-          <Button colro="lightblue" title="Started" />
+          <Button color="lightgreen" title="Quit" onPress={() => this.onPressHandler("quited")}/>
+          <Button colro="lightblue" title="Started" onPress={() => this.onPressHandler("started")}/>
           <Text> from today!</Text>
         </View>
-        <Text style={styles.welcome}>Your Recent Tasks</Text>        
-        {
-          this.state.tasks.map(
-            function(task){
-              if(task.breakDate == null){
-                return(<Text style={styles.success}>I {task.taskType} {task.taskName} at {task.startDate} and did not break it untill now!! </Text>);
-              }else{
-                return(<Text style={styles.danger}>I {task.taskType} {task.taskName} at {task.startDate} and stopped at {task.breakDate} </Text>);
-              }
-            }
-          )
-        }
+        <Text style={styles.welcome}>Your Recent Tasks</Text>  
+        <View></View>      
+        <View>
+          <Text>{this.state.taskName}</Text>
+        </View>
       </View>
     );
   };
