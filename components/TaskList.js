@@ -1,3 +1,0 @@
-class TaskList extends Component{
-    
-}
