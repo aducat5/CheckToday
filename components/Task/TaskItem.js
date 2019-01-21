@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native'
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 
 const taskItem = (props) => (
+    <TouchableOpacity onPress={props.onItemPressed}>
     <View style={(props.task.taskType == "quit" && styles.quitTask) || (props.task.taskType == "started" && styles.startTask)}>
         <Text>#{props.taskKey + 1} I {props.task.taskType} {props.task.taskName} at {this.unixTimeToDate(props.task.startDate)} and did not break it for {this.dayDiff(props.task.startDate, Date.now())} days!!</Text>
-        <Button color="#ff5d5d" title="x" onPress={props.onDelete}/>
     </View>
+    </TouchableOpacity>
 );
 
 unixTimeToDate = (unixTime) => {
@@ -45,5 +46,6 @@ const styles = StyleSheet.create({
         borderColor: 'lightgreen'
     } 
 });
+
 
 export default taskItem;

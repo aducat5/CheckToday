@@ -1,12 +1,13 @@
 
 import React, {Component} from 'react';
 //React Visual Comps
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, ScrollView } from 'react-native';
 //React Others
 import { Platform, StyleSheet, AppRegistry, TextInput, AsyncStorage } from 'react-native';
 
 //CustomComps
 import TaskItem from "./components/Task/TaskItem";
+import TaskDetail from "./components/Task/TaskDetail";
 
 
 export default class App extends Component {
@@ -17,7 +18,10 @@ export default class App extends Component {
       taskName: "",
       tasks: {
         taskObjects: []
-      }
+      },
+      selectedTask: null,
+      selectedTaskKey: null,
+      modalVisible: false
     };  
 
     this.firstOpeningControl();
@@ -96,15 +100,13 @@ export default class App extends Component {
 
   }
 
-  onDeleteHandler = (key) => {
-    let newTasks = this.state.tasks;
-    newTasks[key].breakDate = Date.now().toString();
-    this.setState({tasks: newTasks});
-
-    //this.saveTasks();
-    alert("Task cancelled");
+  onItemPressed = (key) => {
+    this.setState({selectedTask: this.state.tasks.taskObjects[key]});
+    this.setState({selectedTaskKey: key});
+    this.setState({modalVisible: true})
   }
 
+  //This probably will be excluded
   submitName = async () =>{
     this.setState({ isFirst: false });
     try {
@@ -112,9 +114,9 @@ export default class App extends Component {
     } catch (error) {
       alert(error.toString());
     }
-
   }
 
+  //This also is a test method, will keep in for tets purposes
   addTask = () => {
     
     let task = {
@@ -135,6 +137,30 @@ export default class App extends Component {
 
   }
 
+  closeModal = () => { 
+    this.setState({modalVisible: false});
+    this.setState({selectedTask: null});
+    this.setState({selectedTaskKey: null});
+  }
+
+  cancelTask = (key) => {
+    let newTasks = this.state.tasks;
+    newTasks.taskObjects[key].breakDate = Date.now().toString();
+    this.setState({tasks: newTasks});
+
+    this.saveTasks();
+    this.closeModal();
+  }
+
+  deleteTask = (key) => {
+    let newTasks = this.state.tasks;
+    newTasks.taskObjects.splice(key);
+    this.setState({tasks: newTasks});
+
+    this.saveTasks();
+    this.closeModal();
+  }
+
   render() {
 
     
@@ -144,6 +170,7 @@ export default class App extends Component {
       key={key} 
       taskKey={key}
       onDelete={() => this.onDeleteHandler(key)}
+      onItemPressed={() => this.onItemPressed(key)}
       />
     ));
 
@@ -153,6 +180,7 @@ export default class App extends Component {
       key={key} 
       taskKey={key}
       onDelete={() => this.onDeleteHandler(key)}
+      onItemPressed={() => this.onItemPressed(key)}
       />
     ));
 
@@ -172,7 +200,16 @@ export default class App extends Component {
     ) );
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={{alignItems: 'center',
+      justifyContent: 'space-between'}}>
+        <TaskDetail 
+          task = {this.state.selectedTask} 
+          taskKey = {this.selectedTaskKey} 
+          modalVisible = {this.state.modalVisible}
+          closeModal = {this.closeModal}
+          onCancel = {() => this.cancelTask(this.state.selectedTaskKey)}
+          onDelete = {() => this.deleteTask(this.state.selectedTaskKey)}
+          />
         <View>
           {nameInput}
           <Text style={styles.instruction}> This is a behaivour control application. Create a daily task from below! You can start by typing your tasks name to the 'Smoking' placeholder</Text>
@@ -198,7 +235,7 @@ export default class App extends Component {
         <View style={styles.container}>
           {deadTaskOutput}
         </View>
-      </View>
+      </ScrollView>
     );
   };
 };
@@ -207,8 +244,6 @@ const styles = StyleSheet.create({
   container: {
     //flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     backgroundColor: '#F5FCFF',
     top: 0,
     margin: 5,
