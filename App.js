@@ -15,11 +15,13 @@ export default class App extends Component {
     super(props);
     this.state = {
       taskName: "",
-      tasks: []
-   
+      tasks: {
+        taskObjects: []
+      }
     };  
 
     this.firstOpeningControl();
+    this.loadTasks();
 
   }
 
@@ -39,51 +41,56 @@ export default class App extends Component {
   }
 
   saveTasks = async () => {
-    try {
-      let stringTasks = JSON.stringify(this.state.tasks);
-      alert(stringTasks);
-      await AsyncStorage.setItem('tasks', stringTasks);
+    let tasksToSave = this.state.tasks;
+    tasksToSave = JSON.stringify(tasksToSave);
 
+    try {
+      await AsyncStorage.setItem('tasks', tasksToSave);
     } catch (error) {
-      alert("An error occured during the save. Here it is: " + error.toString());
+      alert("Error during the save: " + error.toString());
     }
   }
 
   loadTasks = async() => {
     try {
-
-      let tasksToLoad = null;
-      await AsyncStorage.getItem('tasks', (error, item) => {tasksToLoad = item});
-      tasksToLoad = JSON.parse(tasksToLoad);
-
-      this.setState({tasks: tasksToLoad});
-
+      let loadedTasks = await AsyncStorage.getItem('tasks');
+      if (loadedTasks != null) {
+        //Replace old Tasks object with new 
+        loadedTasks = JSON.parse(loadedTasks);
+        this.setState({tasks: loadedTasks});
+      }else{
+        //Things to do if no tasks
+      }
     } catch (error) {
-      alert("An error occured during the load. Here it is: " + error.toString());   
+     alert('An error occured reading data. '+ error.toString()); 
     }
   }
 
   onPressHandler = (taskType) => {
 
+    //Control if empty
     if(this.state.taskName.trim() === ""){return;}
+
+    //Get typed task name
     let taskName = this.state.taskName;
     
-    task = {
+    let task = {
       'taskType': taskType,
       'taskName': taskName,
       'startDate': Date.now(),
       'breakDate': null
     };
+    //Get current tasks
+    let newTasks = this.state.tasks;
 
-    this.setState(prevState => {
+    //Add the new task to array
+    newTasks.taskObjects.push(task);
 
-      return {
-        tasks: prevState.tasks.concat(task)
-      };
+    //Replace old Tasks object with new 
+    this.setState({tasks: newTasks});
 
-    });
-
-    //this.saveTasks();
+    //Save tasks to localStorage
+    this.saveTasks();
 
     alert(task.taskType + " " + task.taskName + " Task Created!");
 
@@ -108,9 +115,30 @@ export default class App extends Component {
 
   }
 
+  addTask = () => {
+    
+    let task = {
+      'taskType': "taskType",
+      'taskName': "taskName",
+      'startDate': Date.now(),
+      'breakDate': null
+    };
+
+    alert(JSON.stringify(this.state.tasks));
+
+    let newTasks = this.state.tasks;
+    newTasks.taskObjects.push(task);
+
+    this.setState({tasks: newTasks});
+
+    alert(JSON.stringify(this.state.tasks));
+
+  }
+
   render() {
 
-    const liveTaskOutput = this.state.tasks.map((task, key) =>(!task.breakDate) && (
+    
+    const liveTaskOutput = this.state.tasks.taskObjects.map((task, key) =>(!task.breakDate) && (
       <TaskItem 
       task={task} 
       key={key} 
@@ -119,7 +147,7 @@ export default class App extends Component {
       />
     ));
 
-    const deadTaskOutput = this.state.tasks.map((task, key) =>(task.breakDate) && (
+    const deadTaskOutput = this.state.tasks.taskObjects.map((task, key) =>(task.breakDate) && (
       <TaskItem 
       task={task} 
       key={key} 
@@ -136,8 +164,10 @@ export default class App extends Component {
       </View>
     ) || (
       <View style={styles.container}>
-        <Text>Welcome to the app, {this.state.userName}</Text>
-        <Button title="this is not me" onPress={() => {this.setState({isFirst: true});}}  />
+        <View style={styles.row}>
+          <Text style={{margin: 5}}>Welcome to the app, {this.state.userName}</Text>
+          <Button title="x" onPress={() => {this.setState({isFirst: true});}} />
+        </View>
       </View>
     ) );
 
@@ -148,7 +178,7 @@ export default class App extends Component {
           <Text style={styles.instruction}> This is a behaivour control application. Create a daily task from below! You can start by typing your tasks name to the 'Smoking' placeholder</Text>
         </View>
         <View style={styles.row}>
-          <Button title="Reload" />
+          <Button title="Add Task" onPress={this.addTask} />
         </View>
         <View style={styles.row}>
           <TextInput 
