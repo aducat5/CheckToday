@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import { Text, View, Button, ScrollView } from 'react-native';
 //React Others
 import { Platform, StyleSheet, AppRegistry, TextInput, AsyncStorage } from 'react-native';
-
+import FontAwesome, {Icons} from 'react-native-fontawesome';
 //CustomComps
 import TaskItem from "./components/Task/TaskItem";
 import TaskDetail from "./components/Task/TaskDetail";
@@ -162,8 +162,6 @@ export default class App extends Component {
   }
 
   render() {
-
-    
     const liveTaskOutput = this.state.tasks.taskObjects.map((task, key) =>(!task.breakDate) && (
       <TaskItem 
       task={task} 
@@ -212,7 +210,7 @@ export default class App extends Component {
           />
         <View>
           {nameInput}
-          <Text style={styles.instruction}> This is a behaivour control application. Create a daily task from below! You can start by typing your tasks name to the 'Smoking' placeholder</Text>
+          <Text style={styles.instruction}> <FontAwesome style={{fontSize:50}}>{Icons.instagram}</FontAwesome>This is a behaivour control application. Create a daily task from below! You can start by typing your tasks name to the 'Smoking' placeholder</Text>
         </View>
         <View style={styles.row}>
           <Button title="Add Task" onPress={this.addTask} />
