@@ -4,6 +4,7 @@ ADDED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:
 INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
 INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
 INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-vector-icons] C:\GitLab\CheckToday\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\425e479fb7720309092cfb859f5f05cf\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5b29b6592f14a6066bbc2e85943a4f50\AndroidManifest.xml:17:1-22:12
@@ -97,6 +98,8 @@ uses-sdk
 INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\GitLab\CheckToday\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-vector-icons] C:\GitLab\CheckToday\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\GitLab\CheckToday\node_modules\react-native-vector-icons\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.57.8] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\react-native-0.57.8.aar\82770e97335063a520102c7a0eed4c59\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\tamer.celik\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\425e479fb7720309092cfb859f5f05cf\AndroidManifest.xml:20:5-44

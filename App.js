@@ -5,9 +5,11 @@ import { Text, View, Button, ScrollView } from 'react-native';
 //React Others
 import { Platform, StyleSheet, AppRegistry, TextInput, AsyncStorage } from 'react-native';
 import FontAwesome, {Icons} from 'react-native-fontawesome';
+import { Icon } from "react-native-elements";
+
 //CustomComps
-import TaskItem from "./components/Task/TaskItem";
-import TaskDetail from "./components/Task/TaskDetail";
+import TaskItem from "./src/components/Task/TaskItem";
+import TaskDetail from "./src/components/Task/TaskDetail";
 
 
 export default class App extends Component {
@@ -29,15 +31,36 @@ export default class App extends Component {
 
   }
 
+  //start functionsForReduxDispatch
+    //set state funx
+    setIsFirst = (value) => {this.setState({isFirst: value});};
+    setUserName = (value) => {this.setState({userName: value});};
+    setTasks = (value) => {this.setState({tasks: value});};
+    setSelectedTask = (value) => {this.setState({selectedTask: this.getTasks().taskObjects[value]});};
+    setSelectedTaskKey = (value) => {this.setState({selectedTaskKey: value});};
+    setModalVisible = (value) => {this.setState({modalVisible: value});};
+    setTaskName = (value) => {this.setState({taskName: value});};
 
+    //get state funx
+    getTasks = () => {return this.state.tasks;};
+    getWrittenTaskName = () => {return this.state.taskName;};
+    getIsFirst = () => {return this.state.isFirst};
+    getUserName = () => {return this.state.userName};
+    getSelectedTask = () => {return this.state.selectedTask}
+    getSelectedTaskKey = () => {return this.state.selectedTaskKey};
+    getModalVisible = () => {return this.state.modalVisible};
+
+  //end funcitonsForReduxDispatch
+
+  
   firstOpeningControl = async () => {
     try {
       let userName = await AsyncStorage.getItem('userName');
       if (userName != null) {
-        this.setState({isFirst: false});
-        this.setState({userName: userName});
+        this.setIsFirst(false);
+        this.setUserName(userName);
       }else{
-        this.setState({isFirst: true});
+        this.setIsFirst(true);
       }
     } catch (error) {
      alert('An error occured reading data. '+ error.toString()); 
@@ -45,7 +68,7 @@ export default class App extends Component {
   }
 
   saveTasks = async () => {
-    let tasksToSave = this.state.tasks;
+    let tasksToSave = this.getTasks();
     tasksToSave = JSON.stringify(tasksToSave);
 
     try {
@@ -61,7 +84,7 @@ export default class App extends Component {
       if (loadedTasks != null) {
         //Replace old Tasks object with new 
         loadedTasks = JSON.parse(loadedTasks);
-        this.setState({tasks: loadedTasks});
+        this.setTasks(loadedTasks);
       }else{
         //Things to do if no tasks
       }
@@ -70,13 +93,13 @@ export default class App extends Component {
     }
   }
 
-  onPressHandler = (taskType) => {
+  addTask = (taskType) => {
 
     //Control if empty
-    if(this.state.taskName.trim() === ""){return;}
+    if(this.getWrittenTaskName().trim() === ""){return;}
 
     //Get typed task name
-    let taskName = this.state.taskName;
+    let taskName = this.getWrittenTaskName().trim();
     
     let task = {
       'taskType': taskType,
@@ -84,14 +107,15 @@ export default class App extends Component {
       'startDate': Date.now(),
       'breakDate': null
     };
+
     //Get current tasks
-    let newTasks = this.state.tasks;
+    let newTasks = this.getTasks();
 
     //Add the new task to array
     newTasks.taskObjects.push(task);
 
     //Replace old Tasks object with new 
-    this.setState({tasks: newTasks});
+    this.setTasks(newTasks);
 
     //Save tasks to localStorage
     this.saveTasks();
@@ -101,14 +125,14 @@ export default class App extends Component {
   }
 
   onItemPressed = (key) => {
-    this.setState({selectedTask: this.state.tasks.taskObjects[key]});
-    this.setState({selectedTaskKey: key});
-    this.setState({modalVisible: true})
+    this.setSelectedTask(key);
+    this.setSelectedTaskKey(key);
+    this.setModalVisible(true);
   }
 
   //This probably will be excluded
   submitName = async () =>{
-    this.setState({ isFirst: false });
+    this.setIsFirst(false);
     try {
       await AsyncStorage.setItem('userName', this.state.userName);  
     } catch (error) {
@@ -117,7 +141,7 @@ export default class App extends Component {
   }
 
   //This also is a test method, will keep in for tets purposes
-  addTask = () => {
+  testMethod = () => {
     
     let task = {
       'taskType': "taskType",
@@ -126,43 +150,38 @@ export default class App extends Component {
       'breakDate': null
     };
 
-    alert(JSON.stringify(this.state.tasks));
-
-    let newTasks = this.state.tasks;
+    let newTasks = this.getTasks();
     newTasks.taskObjects.push(task);
 
-    this.setState({tasks: newTasks});
-
-    alert(JSON.stringify(this.state.tasks));
-
+    this.setTasks(newTasks);
   }
 
   closeModal = () => { 
-    this.setState({modalVisible: false});
-    this.setState({selectedTask: null});
-    this.setState({selectedTaskKey: null});
+    this.setModalVisible(false);
+    this.setSelectedTask(null);
+    this.setSelectedTaskKey(null);
   }
 
   cancelTask = (key) => {
-    let newTasks = this.state.tasks;
+    let newTasks = this.getTasks();
     newTasks.taskObjects[key].breakDate = Date.now().toString();
-    this.setState({tasks: newTasks});
+    this.setTasks(newTasks);
 
     this.saveTasks();
     this.closeModal();
   }
 
   deleteTask = (key) => {
-    let newTasks = this.state.tasks;
+    let newTasks = this.getTasks();
     newTasks.taskObjects.splice(key);
-    this.setState({tasks: newTasks});
+    this.setTasks(newTasks);
 
     this.saveTasks();
     this.closeModal();
   }
 
   render() {
-    const liveTaskOutput = this.state.tasks.taskObjects.map((task, key) =>(!task.breakDate) && (
+    const liveTaskOutput = this.getTasks().taskObjects.map((task, key) =>(!task.breakDate) && (
       <TaskItem 
       task={task} 
       key={key} 
@@ -172,7 +191,7 @@ export default class App extends Component {
       />
     ));
 
-    const deadTaskOutput = this.state.tasks.taskObjects.map((task, key) =>(task.breakDate) && (
+    const deadTaskOutput = this.getTasks().taskObjects.map((task, key) =>(task.breakDate) && (
       <TaskItem 
       task={task} 
       key={key} 
@@ -182,18 +201,16 @@ export default class App extends Component {
       />
     ));
 
-    const nameInput = ((this.state.isFirst) && (
+    const nameInput = ((this.getIsFirst()) && (
       <View style={styles.container}>
-        <Text>Welcome to the app, {this.state.userName}</Text>
-        <TextInput placeholder="Your Name" onChangeText={(text) => {this.setState({userName: text});}} />
+        <Text>Welcome to the app, {this.getuse}</Text>
+        <TextInput placeholder="Your Name" onChangeText={(text) => {this.setUserName(text);}} />
         <Button title="is my name" onPress={this.submitName}  />
       </View>
     ) || (
-      <View style={styles.container}>
-        <View style={styles.row}>
-          <Text style={{margin: 5}}>Welcome to the app, {this.state.userName}</Text>
-          <Button title="x" onPress={() => {this.setState({isFirst: true});}} />
-        </View>
+      <View style={{flexDirection:'row', alignContent:'space-around', alignItems:'center' }}>
+        <Button title="x" onPress={() => {this.setIsFirst(true);}} />
+        <Text style={{margin: 5}}>Welcome to the app, {this.getUserName()}</Text>
       </View>
     ) );
 
@@ -201,28 +218,28 @@ export default class App extends Component {
       <ScrollView style={styles.container} contentContainerStyle={{alignItems: 'center',
       justifyContent: 'space-between'}}>
         <TaskDetail 
-          task = {this.state.selectedTask} 
-          taskKey = {this.selectedTaskKey} 
-          modalVisible = {this.state.modalVisible}
+          task = {this.getSelectedTask()} 
+          taskKey = {this.getSelectedTaskKey()} 
+          modalVisible = {this.getModalVisible()}
           closeModal = {this.closeModal}
-          onCancel = {() => this.cancelTask(this.state.selectedTaskKey)}
-          onDelete = {() => this.deleteTask(this.state.selectedTaskKey)}
+          onCancel = {() => this.cancelTask(this.getSelectedTaskKey())}
+          onDelete = {() => this.deleteTask(this.getSelectedTaskKey())}
           />
         <View>
-          {nameInput}
-          <Text style={styles.instruction}> <FontAwesome style={{fontSize:50}}>{Icons.instagram}</FontAwesome>This is a behaivour control application. Create a daily task from below! You can start by typing your tasks name to the 'Smoking' placeholder</Text>
-        </View>
-        <View style={styles.row}>
-          <Button title="Add Task" onPress={this.addTask} />
+          <View style={styles.nameRow} >{nameInput}</View>
+          <View style={{flexDirection:'row', alignItems:'center', paddingHorizontal:35, alignSelf:'center'}} >
+            <Icon name='info' size={80} color='#2E90FF'/>
+            <Text>This is a behaivour control application. Create a daily task from below! You can start by typing your tasks name to the 'Smoking' placeholder</Text>
+          </View>
         </View>
         <View style={styles.row}>
           <TextInput 
           placeholder='Smoking'
-          onChangeText={(text) => this.setState({taskName: text})}
+          onChangeText={(text) => this.setTaskName(text)}
           ></TextInput>
           <Text> is the thing i </Text>
-          <Button color="lightgreen" title="Quit" onPress={() => this.onPressHandler("quit")}/>
-          <Button title="Started" onPress={() => this.onPressHandler("started")}/>
+          <Button color="lightgreen" title="Quit" onPress={() => this.addTask("quit")}/>
+          <Button title="Started" onPress={() => this.addTask("started")}/>
           <Text> from today!</Text>
         </View>
         <Text style={styles.welcome}>Your Recent Tasks</Text>  
@@ -247,15 +264,21 @@ const styles = StyleSheet.create({
     margin: 5,
     padding: 15
   },
-  instruction:{
-    margin: 25
-  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     borderWidth: 2,
     margin: 15,
+    padding: 5,
+    borderColor: 'lightgreen'
+  },
+  nameRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderWidth: 2,
+    marginLeft: 35,
     padding: 5,
     borderColor: 'lightgreen'
   },
