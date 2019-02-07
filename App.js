@@ -4,27 +4,31 @@ import React, {Component} from 'react';
 import { Text, View, Button, ScrollView } from 'react-native';
 //React Others
 import { Platform, StyleSheet, AppRegistry, TextInput, AsyncStorage } from 'react-native';
-import FontAwesome, {Icons} from 'react-native-fontawesome';
+import { connect } from "react-redux";
 import { Icon } from "react-native-elements";
+
+//Redux
+import * as Actions from './src/store/actions/index';
 
 //CustomComps
 import TaskItem from "./src/components/Task/TaskItem";
 import TaskDetail from "./src/components/Task/TaskDetail";
 
 
-export default class App extends Component {
+class App extends Component {
   constructor(props){
 
     super(props);
-    this.state = {
-      taskName: "",
-      tasks: {
-        taskObjects: []
-      },
-      selectedTask: null,
-      selectedTaskKey: null,
-      modalVisible: false
-    };  
+
+    // this.state = {
+    //   taskName: "",
+    //   tasks: {
+    //     taskObjects: []
+    //   },
+    //   selectedTask: null,
+    //   selectedTaskKey: null,
+    //   modalVisible: false
+    // };  
 
     this.firstOpeningControl();
     this.loadTasks();
@@ -33,22 +37,22 @@ export default class App extends Component {
 
   //start functionsForReduxDispatch
     //set state funx
-    setIsFirst = (value) => {this.setState({isFirst: value});};
-    setUserName = (value) => {this.setState({userName: value});};
-    setTasks = (value) => {this.setState({tasks: value});};
-    setSelectedTask = (value) => {this.setState({selectedTask: this.getTasks().taskObjects[value]});};
-    setSelectedTaskKey = (value) => {this.setState({selectedTaskKey: value});};
-    setModalVisible = (value) => {this.setState({modalVisible: value});};
-    setTaskName = (value) => {this.setState({taskName: value});};
+    setIsFirst = (value) => {this.props.onSetIsFirst(value);};
+    setUserName = (value) => {this.props.onSetUserName(value);};
+    setTasks = (value) => {this.props.onSetTasks(value);};
+    setSelectedTask = (value) => {this.props.onSetSelectedTask(this.props.tasks.taskObjects[value]);};
+    setSelectedTaskKey = (value) => {this.props.onSetSelectedTaskKey(value)};
+    setModalVisible = (value) => {this.props.onSetModalVisible(value);};
+    setTaskName = (value) => {this.props.onSetTaskName(value)};
 
     //get state funx
-    getTasks = () => {return this.state.tasks;};
-    getWrittenTaskName = () => {return this.state.taskName;};
-    getIsFirst = () => {return this.state.isFirst};
-    getUserName = () => {return this.state.userName};
-    getSelectedTask = () => {return this.state.selectedTask}
-    getSelectedTaskKey = () => {return this.state.selectedTaskKey};
-    getModalVisible = () => {return this.state.modalVisible};
+    getTasks = () => {return this.props.tasks;};
+    getWrittenTaskName = () => {return this.props.taskName;};
+    getIsFirst = () => {return this.props.isFirst};
+    getUserName = () => {return this.props.userName};
+    getSelectedTask = () => {return this.props.selectedTask}
+    getSelectedTaskKey = () => {return this.props.selectedTaskKey};
+    getModalVisible = () => {return this.props.modalVisible};
 
   //end funcitonsForReduxDispatch
 
@@ -255,6 +259,7 @@ export default class App extends Component {
   };
 };
 
+
 const styles = StyleSheet.create({
   container: {
     //flex: 1,
@@ -294,3 +299,28 @@ const styles = StyleSheet.create({
     color: 'red'
   }
 });
+
+
+const mapStateToProps = state => {
+  return {
+    taskName: state.appState.taskName,
+    tasks: state.appState.tasks,
+    selectedTask: state.appState.selectedTask,
+    selectedTaskKey: state.appState.selectedTaskKey,
+    modalVisible: state.appState.modalVisible
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return{
+    onSetIsFirst: isFirstValue => dispatch(Actions.setIsFirst(isFirstValue)),
+    onSetUserName: userNameValue => dispatch(Actions.setUserName(userNameValue)),
+    onSetTasks: taskValue => dispatch(Actions.setTasks(taskValue)),
+    onSetSelectedTask: selectedTaskValue => dispatch(Actions.setSelectedTask(selectedTaskValue)),
+    onSetSelectedTaskKey: selectedTaskValueKey => dispatch(Actions.setSelectedTaskKey(selectedTaskValueKey)),
+    onSetModalVisible: modalVisibleValue => dispatch(Actions.setModalVisible(modalVisibleValue)),
+    onSetTaskName: taskNameValue => dispatch(Actions.setTaskName(taskNameValue))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
